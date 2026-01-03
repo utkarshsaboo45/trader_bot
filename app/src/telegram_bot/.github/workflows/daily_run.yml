@@ -1,0 +1,37 @@
+name: Run Telegram Bot
+on:
+  schedule:
+    - cron: '0 9 * * *'   # 9 AM UTC
+  workflow_dispatch:       # Allows you to click "Run Now" to test
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    
+    # This tells GitHub to run all 'run' commands inside your specific folder
+    defaults:
+      run:
+        working-directory: ./app/src/telegram_bot
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # Only downloads this specific folder to keep it fast/free
+          sparse-checkout: app/src/telegram_bot
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        # This will look for app/src/telegram_bot/requirements.txt
+        run: pip install -r requirements.txt
+
+      - name: Run script
+        # This will look for app/src/telegram_bot/main.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python main.py
