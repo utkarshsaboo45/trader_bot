@@ -1,0 +1,4 @@
+numpy==2.2
+pandas==2.3.3
+yfinance==1.0
+python-telegram-bot==21.1.1
