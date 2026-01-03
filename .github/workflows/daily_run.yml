@@ -1,8 +1,12 @@
 name: Run Telegram Bot
 on:
   schedule:
-    - cron: '0 9 * * *'   # 9 AM UTC
-  workflow_dispatch:       # Allows you to click "Run Now" to test
+    # 6:15 AM (Pacific) - Covers both PDT/PST hours
+    - cron: '15 13,14 * * 1-5'
+    
+    # 8:00 PM (Pacific) - Covers both PDT/PST hours
+    # Shifts to Tue-Sat UTC to cover Mon-Fri PDT/PST
+    - cron: '0 3,4 * * 2-6'
 
 jobs:
   run-bot:
