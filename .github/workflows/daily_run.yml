@@ -27,7 +27,7 @@ jobs:
 
       - name: Install dependencies
         # This will look for app/src/telegram_bot/requirements.txt
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt --pre
 
       - name: Run script
         # This will look for app/src/telegram_bot/main.py
