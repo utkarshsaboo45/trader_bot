@@ -8,8 +8,8 @@ from datetime import datetime, timedelta
 import numpy as np
 
 
-TELEGRAM_API_KEY = os.getenv('TELEGRAM_API_KEY')
-CHAT_ID = os.getenv('TELEGRAM_TRADER_CHAT_ID')
+TELEGRAM_API_KEY = os.getenv('TELEGRAM_TOKEN')
+CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
 
 # --- 1. CONFIGURATION ---
