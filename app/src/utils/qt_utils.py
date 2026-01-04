@@ -133,8 +133,8 @@ def get_access_token(refresh_token=None):
     api_server = dict_token_data['api_server']  ##  https://api01.iq.questrade.com/
     refresh_token = dict_token_data['refresh_token']
 
-    with open(PATH_REFRESH_TOKEN_FILE, 'w') as f:
-        f.write(refresh_token)
+    # with open(PATH_REFRESH_TOKEN_FILE, 'w') as f:
+    #     f.write(refresh_token)
 
     return dict_token_data  # Contains access_token, api_server, token_type, expires_in, refresh_token
 

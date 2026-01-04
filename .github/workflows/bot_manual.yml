@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           # Only downloads this specific folder to keep it fast/free
-          sparse-checkout: app/src/telegram_bot
+          sparse-checkout: app
 
       - name: Set up Python
         uses: actions/setup-python@v5
